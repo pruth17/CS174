@@ -1,0 +1,18 @@
+CREATE DATABASE assignment3;
+
+CREATE TABLE video_output(
+id VARCHAR(16) NOT NULL, # using archer because we don't know exactly the size of the id
+timestamp DATETIME, # DATETIME is used instead of timestamp because of its limitations
+video_content TINYTEXT NOT NULL, # Paths are less than 255 character, therefore we use        #tinytext
+thumbnail TINYTEXT, # same logic as video_content, therefore tinytext instead of varchar
+hash CHAR(32) NOT NULL, # using char because size of hash is fixed
+autoid INT UNSIGNED NOT NULL AUTO_INCREMENT KEY) # auto incrementing key
+ENGINE MyISAM;
+
+CREATE TABLE image_data(
+hash char(32), # using char because size of hash is fixed
+image_content VARCHAR(256), # varchar because path can be of different size
+image_time_stamp DATETIME,# using datetime as the same logic as timestamp
+autoid INT UNSIGNED NOT NULL AUTO_INCREMENT KEY) # auto incrementing key
+ENGINE MyISAM;
+
